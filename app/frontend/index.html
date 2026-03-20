@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temario TAI</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="app-frame">
+        <header class="masthead">
+            <div class="brand-copy">
+                <span class="eyebrow">Cuaderno de estudio</span>
+                <h1>Temario de oposicion</h1>
+                <p>Aplicacion de estudio para Tecnico Auxiliar de Informatica, pensada como un dossier vivo: contenido largo, lectura limpia, fuentes oficiales y practica aleatoria.</p>
+            </div>
+            <div class="brand-meta">
+                <span>TAI</span>
+                <small>Temario desarrollado</small>
+            </div>
+        </header>
+
+        <div class="workspace">
+            <aside class="rail">
+                <div class="rail-block">
+                    <span class="eyebrow">Indice</span>
+                    <h3>Temas</h3>
+                    <p class="rail-copy">Selecciona el bloque activo del temario.</p>
+                    <nav id="topicNav" class="topic-nav"></nav>
+                </div>
+
+                <div class="rail-block rail-block-muted">
+                    <p id="statusText">Cargando tema...</p>
+                </div>
+            </aside>
+
+            <main class="reader">
+                <section class="cover-card" id="hero">
+                    <div class="cover-top">
+                        <span class="chip">Tema activo</span>
+                        <span class="chip chip-ghost">Fuentes oficiales</span>
+                    </div>
+                    <h2 id="heroTitle">Cargando...</h2>
+                    <p id="heroSummary"></p>
+                    <div class="cover-stats">
+                        <div class="stat">
+                            <strong id="heroLevel">-</strong>
+                            <span>Nivel</span>
+                        </div>
+                        <div class="stat">
+                            <strong id="heroQuestions">-</strong>
+                            <span>Preguntas</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="document-card">
+                    <div class="section-bar">
+                        <div>
+                            <span class="section-index">01</span>
+                            <h3>Contenido del tema</h3>
+                        </div>
+                        <p id="sourceNote"></p>
+                    </div>
+                    <article id="topicContent" class="topic-content"></article>
+                </section>
+
+                <section class="document-card">
+                    <div class="section-bar">
+                        <div>
+                            <span class="section-index">02</span>
+                            <h3>Fuentes oficiales</h3>
+                        </div>
+                        <p>Base institucional para contrastar el temario.</p>
+                    </div>
+                    <div id="sourcesList" class="source-grid"></div>
+                </section>
+
+                <section class="practice-section">
+                    <div class="section-bar">
+                        <div>
+                            <span class="section-index">03</span>
+                            <h3>Practica del tema</h3>
+                        </div>
+                        <p>Genera test aleatorios y corrige con explicacion.</p>
+                    </div>
+
+                    <div class="practice-body">
+                        <div class="practice-intro">
+                            <span class="eyebrow">Practica</span>
+                            <h3>Test aleatorio</h3>
+                            <p class="rail-copy">La practica queda separada del texto para no romper la lectura del temario.</p>
+                        </div>
+
+                        <div class="test-toolbar">
+                            <div class="field">
+                                <label for="countSelect">Numero de preguntas</label>
+                                <select id="countSelect">
+                                    <option value="10">10</option>
+                                    <option value="20" selected>20</option>
+                                    <option value="30">30</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="categorySelect">Bloque</label>
+                                <select id="categorySelect">
+                                    <option value="all">Todo el tema</option>
+                                </select>
+                            </div>
+
+                            <div class="field field-actions">
+                                <label>Acciones</label>
+                                <div class="actions">
+                                    <button id="generateBtn" class="btn btn-primary" type="button">Generar test</button>
+                                    <button id="checkBtn" class="btn btn-secondary" type="button">Corregir</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="resultBox" class="result-box hidden">
+                            <strong id="resultTitle"></strong>
+                            <span id="resultText"></span>
+                        </div>
+
+                        <div id="questionsList" class="question-list"></div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>

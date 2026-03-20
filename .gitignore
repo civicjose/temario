@@ -1,0 +1,6 @@
+node_modules/
+app/backend/data/
+*.sqlite
+*.db
+.env
+.claude/
