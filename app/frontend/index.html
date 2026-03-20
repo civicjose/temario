@@ -29,52 +29,61 @@
                     <nav id="topicNav" class="topic-nav"></nav>
                 </div>
 
+                <div class="rail-block">
+                    <span class="eyebrow">Lectura</span>
+                    <h3>En este tema</h3>
+                    <p class="rail-copy">Mapa rapido de apartados para repasar y volver a puntos clave.</p>
+                    <nav id="sectionNav" class="section-nav"></nav>
+                </div>
+
                 <div class="rail-block rail-block-muted">
                     <p id="statusText">Cargando tema...</p>
                 </div>
             </aside>
 
             <main class="reader">
-                <section class="cover-card" id="hero">
-                    <div class="cover-top">
-                        <span class="chip">Tema activo</span>
-                        <span class="chip chip-ghost">Fuentes oficiales</span>
-                    </div>
-                    <h2 id="heroTitle">Cargando...</h2>
-                    <p id="heroSummary"></p>
-                    <div class="cover-stats">
-                        <div class="stat">
-                            <strong id="heroLevel">-</strong>
-                            <span>Nivel</span>
+                <div class="document-shell">
+                    <section class="cover-card" id="hero">
+                        <div class="cover-top">
+                            <span class="chip">Tema activo</span>
+                            <span class="chip chip-ghost">Fuentes oficiales</span>
                         </div>
-                        <div class="stat">
-                            <strong id="heroQuestions">-</strong>
-                            <span>Preguntas</span>
+                        <h2 id="heroTitle">Cargando...</h2>
+                        <p id="heroSummary"></p>
+                        <div class="cover-stats">
+                            <div class="stat">
+                                <strong id="heroLevel">-</strong>
+                                <span>Nivel</span>
+                            </div>
+                            <div class="stat">
+                                <strong id="heroQuestions">-</strong>
+                                <span>Preguntas</span>
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section class="document-card">
-                    <div class="section-bar">
-                        <div>
-                            <span class="section-index">01</span>
-                            <h3>Contenido del tema</h3>
+                    <section class="document-card">
+                        <div class="section-bar">
+                            <div>
+                                <span class="section-index">01</span>
+                                <h3>Contenido del tema</h3>
+                            </div>
+                            <p id="sourceNote"></p>
                         </div>
-                        <p id="sourceNote"></p>
-                    </div>
-                    <article id="topicContent" class="topic-content"></article>
-                </section>
+                        <article id="topicContent" class="topic-content"></article>
+                    </section>
 
-                <section class="document-card">
-                    <div class="section-bar">
-                        <div>
-                            <span class="section-index">02</span>
-                            <h3>Fuentes oficiales</h3>
+                    <section class="document-card">
+                        <div class="section-bar">
+                            <div>
+                                <span class="section-index">02</span>
+                                <h3>Fuentes oficiales</h3>
+                            </div>
+                            <p>Base institucional para contrastar el temario.</p>
                         </div>
-                        <p>Base institucional para contrastar el temario.</p>
-                    </div>
-                    <div id="sourcesList" class="source-grid"></div>
-                </section>
+                        <div id="sourcesList" class="source-grid"></div>
+                    </section>
+                </div>
 
                 <section class="practice-section">
                     <div class="section-bar">

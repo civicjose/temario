@@ -4,6 +4,7 @@
     --bg: #f2ecdf;
     --paper: #fbf8f1;
     --paper-soft: #f6f0e3;
+    --paper-deep: #efe6d2;
     --ink: #1e252b;
     --ink-soft: #58626d;
     --ink-faint: #7f8891;
@@ -172,7 +173,7 @@ ul {
 
 .workspace {
     display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: 246px minmax(0, 1fr);
     gap: 36px;
     margin-top: 22px;
 }
@@ -235,8 +236,73 @@ ul {
     padding-left: 16px;
 }
 
+.section-nav {
+    display: grid;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.section-link {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 10px;
+    align-items: start;
+    padding: 8px 0;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(30, 37, 43, 0.07);
+}
+
+.section-link span {
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.section-link strong {
+    font-size: 0.88rem;
+    line-height: 1.42;
+    color: var(--ink-soft);
+    transition: color 140ms ease, transform 140ms ease;
+}
+
+.section-link:hover strong,
+.section-link:focus-visible strong {
+    color: var(--ink);
+    transform: translateX(3px);
+}
+
+.section-link-empty {
+    color: var(--ink-faint);
+    font-size: 0.88rem;
+}
+
 .reader {
     min-width: 0;
+    display: grid;
+    gap: 24px;
+}
+
+.document-shell {
+    padding: 28px clamp(20px, 4vw, 56px) 34px;
+    border: 1px solid rgba(30, 37, 43, 0.12);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent 18%),
+        var(--paper);
+    box-shadow: 0 18px 40px rgba(55, 45, 28, 0.08);
+    position: relative;
+}
+
+.document-shell::before {
+    content: "";
+    position: absolute;
+    left: clamp(14px, 3vw, 30px);
+    top: 22px;
+    bottom: 22px;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(22, 56, 79, 0.08), rgba(127, 45, 34, 0.08));
+    pointer-events: none;
 }
 
 .cover-card {
@@ -284,6 +350,7 @@ ul {
 .cover-card h2 {
     max-width: 14ch;
     font-size: clamp(2.25rem, 3.6vw, 4rem);
+    text-wrap: balance;
 }
 
 .cover-card p {
@@ -368,7 +435,7 @@ ul {
 }
 
 .topic-content {
-    padding: 28px 0 4px;
+    padding: 30px 0 6px;
 }
 
 .content-block + .content-block {
@@ -397,6 +464,7 @@ ul {
 .section-head h2 {
     max-width: 13ch;
     font-size: clamp(2.1rem, 3.2vw, 3.4rem);
+    text-wrap: balance;
 }
 
 .section-head p {
@@ -428,7 +496,7 @@ ul {
 
 .content-grid {
     display: grid;
-    gap: 12px 20px;
+    gap: 14px 24px;
     margin-top: 18px;
 }
 
@@ -440,6 +508,7 @@ ul {
     padding: 14px 16px 15px;
     border: 1px solid rgba(30, 37, 43, 0.08);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.52), rgba(246, 240, 229, 0.7));
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.7) inset;
 }
 
 .study-card h4 {
@@ -500,6 +569,7 @@ ul {
 .timeline {
     margin-top: 20px;
     border-top: 1px solid var(--line-strong);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.38), transparent);
 }
 
 .timeline-item {
@@ -569,7 +639,8 @@ ul {
 .source-card a {
     font-size: 0.86rem;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .source-card a:hover {
@@ -579,14 +650,17 @@ ul {
 .practice-section {
     margin-top: 16px;
     padding-bottom: 6px;
+    padding-left: clamp(14px, 2.5vw, 28px);
+    border-left: 4px solid rgba(22, 56, 79, 0.24);
 }
 
 .practice-body {
-    padding: 22px 22px 10px;
+    padding: 22px 24px 10px;
     background:
         linear-gradient(180deg, rgba(22, 56, 79, 0.03), rgba(255, 255, 255, 0)),
         rgba(255, 255, 255, 0.34);
     border: 1px solid rgba(30, 37, 43, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 .practice-intro {
@@ -611,6 +685,7 @@ ul {
     padding: 16px 0 18px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+    align-items: end;
 }
 
 .field {
@@ -634,10 +709,9 @@ input {
 
 select {
     width: 100%;
-    padding: 10px 0;
-    border: 0;
-    border-bottom: 1px solid var(--line-strong);
-    background: transparent;
+    padding: 11px 12px;
+    border: 1px solid rgba(30, 37, 43, 0.15);
+    background: rgba(255, 255, 255, 0.72);
     color: var(--ink);
 }
 
@@ -648,24 +722,28 @@ select {
 }
 
 .btn {
-    padding: 10px 0;
-    border: 0;
-    background: transparent;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    background: rgba(255, 255, 255, 0.62);
     font-weight: 700;
     cursor: pointer;
-    transition: opacity 140ms ease;
+    transition: opacity 140ms ease, background 140ms ease, border-color 140ms ease;
 }
 
 .btn:hover {
-    opacity: 0.72;
+    opacity: 1;
 }
 
 .btn-primary {
     color: var(--accent);
+    border-color: rgba(127, 45, 34, 0.16);
+    background: rgba(127, 45, 34, 0.08);
 }
 
 .btn-secondary {
     color: var(--navy);
+    border-color: rgba(22, 56, 79, 0.16);
+    background: rgba(22, 56, 79, 0.06);
 }
 
 .hidden {
@@ -748,12 +826,13 @@ select {
     border-left: 2px solid transparent;
     background: rgba(255, 255, 255, 0.38);
     cursor: pointer;
-    transition: background 140ms ease, border-color 140ms ease;
+    transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
 }
 
 .option:hover {
     background: rgba(22, 56, 79, 0.04);
     border-color: rgba(22, 56, 79, 0.2);
+    transform: translateX(2px);
 }
 
 .option.correct {
@@ -793,6 +872,14 @@ select {
     font-size: 0.92rem;
 }
 
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+    outline: 2px solid rgba(22, 56, 79, 0.5);
+    outline-offset: 2px;
+}
+
 @media (max-width: 1040px) {
     .workspace {
         grid-template-columns: 1fr;
@@ -801,7 +888,7 @@ select {
 
     .rail {
         position: static;
-        grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 24px;
         align-items: end;
     }
@@ -818,6 +905,10 @@ select {
 
     .topic-link {
         padding: 8px 0;
+    }
+
+    .section-nav {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -849,6 +940,7 @@ select {
     }
 
     .topic-nav,
+    .section-nav,
     .content-grid.two,
     .source-grid,
     .test-toolbar {
@@ -865,6 +957,18 @@ select {
 
     .timeline-item > span {
         padding-bottom: 0;
+    }
+
+    .document-shell {
+        padding: 22px 18px 26px;
+    }
+
+    .document-shell::before {
+        display: none;
+    }
+
+    .practice-section {
+        padding-left: 16px;
     }
 }
 
