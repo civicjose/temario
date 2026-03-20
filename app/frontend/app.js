@@ -5,6 +5,7 @@ const state = {
 };
 
 const topicNav = document.getElementById("topicNav");
+const sectionNav = document.getElementById("sectionNav");
 const statusText = document.getElementById("statusText");
 const heroTitle = document.getElementById("heroTitle");
 const heroSummary = document.getElementById("heroSummary");
@@ -156,6 +157,28 @@ function renderCategorySelect(slug) {
     ].join("");
 }
 
+function renderSectionNav() {
+    const sectionHeadings = [...topicContent.querySelectorAll(".content-block > h3")];
+
+    if (!sectionHeadings.length) {
+        sectionNav.innerHTML = '<span class="section-link-empty">Indice interno no disponible.</span>';
+        return;
+    }
+
+    sectionHeadings.forEach((heading, index) => {
+        heading.id = `section-${index + 1}`;
+    });
+
+    sectionNav.innerHTML = sectionHeadings
+        .map((heading, index) => `
+            <a class="section-link" href="#${heading.id}">
+                <span>${String(index + 1).padStart(2, "0")}</span>
+                <strong>${escapeHtml(repairText(heading.textContent))}</strong>
+            </a>
+        `)
+        .join("");
+}
+
 function resetResult() {
     resultBox.classList.add("hidden");
     resultTitle.textContent = "";
@@ -195,6 +218,7 @@ function renderTopic(topic) {
     sourceNote.textContent = repairText(topic.sourceNote);
     topicContent.innerHTML = repairText(topic.contentHtml);
 
+    renderSectionNav();
     renderSources(topic.sources || []);
     renderCategorySelect(topic.slug);
     renderTopicNav();
