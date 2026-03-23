@@ -184,6 +184,23 @@ ul {
     align-self: start;
     display: grid;
     gap: 18px;
+    max-height: calc(100vh - 40px);
+    padding-right: 10px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+.rail::-webkit-scrollbar {
+    width: 8px;
+}
+
+.rail::-webkit-scrollbar-thumb {
+    background: rgba(30, 37, 43, 0.16);
+}
+
+.rail::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.24);
 }
 
 .rail-block {
@@ -888,14 +905,21 @@ input:focus-visible {
 
     .rail {
         position: static;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 24px;
         align-items: end;
+        max-height: none;
+        padding-right: 0;
+        overflow: visible;
     }
 
     .rail-block {
         padding-bottom: 0;
         border-bottom: 0;
+    }
+
+    .rail-block-muted {
+        grid-column: 1 / -1;
     }
 
     .topic-nav {
@@ -926,6 +950,10 @@ input:focus-visible {
     }
 
     .brand-meta {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 12px;
         justify-items: start;
         padding-bottom: 0;
     }
@@ -934,9 +962,26 @@ input:focus-visible {
         text-align: left;
     }
 
+    .brand-copy {
+        padding-left: 14px;
+    }
+
+    .brand-copy::before {
+        width: 2px;
+    }
+
+    .workspace {
+        gap: 18px;
+    }
+
     .rail {
         grid-template-columns: 1fr;
         gap: 14px;
+    }
+
+    .rail-block {
+        padding-bottom: 14px;
+        border-bottom: 1px solid var(--line);
     }
 
     .topic-nav,
@@ -967,8 +1012,45 @@ input:focus-visible {
         display: none;
     }
 
+    .cover-card {
+        padding: 18px 18px 20px 20px;
+    }
+
+    .cover-card::before {
+        top: 18px;
+        bottom: 18px;
+        width: 3px;
+    }
+
     .practice-section {
-        padding-left: 16px;
+        padding-left: 0;
+        border-left: 0;
+    }
+
+    .practice-body {
+        padding: 18px 16px 8px;
+    }
+
+    .field-actions .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .question-card > p {
+        font-size: 1rem;
+    }
+
+    .section-link {
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 8px;
+    }
+
+    .section-link strong {
+        font-size: 0.84rem;
     }
 }
 
@@ -983,6 +1065,16 @@ input:focus-visible {
 
     .brand-copy h1 {
         font-size: 2.2rem;
+    }
+
+    .cover-card,
+    .practice-body {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .field-actions .actions {
+        grid-template-columns: 1fr;
     }
 
     .cover-card h2,
